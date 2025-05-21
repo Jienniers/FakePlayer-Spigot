@@ -29,8 +29,10 @@ public class Remove implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-        player.sendMessage(ChatColor.GREEN+"Success: All Fake Players Have Been Removed!");
-        Create.fakeplayers.clear();
+        if (player.isOp()) {
+            player.sendMessage(ChatColor.GREEN + "Success: All Fake Players Have Been Removed!");
+            Create.fakeplayers.clear();
+        }
         return true;
     }
 }
